@@ -1,4 +1,17 @@
-# Fossify Launcher
+# Fossify Launcher Tabs
+
+> **This is an unofficial fork of [Fossify Launcher](https://github.com/FossifyOrg/Launcher)** that adds one feature: **tabs in the app drawer** to organize your apps. It is not affiliated with or supported by Fossify — please report problems with this fork here, not to Fossify.
+>
+> - A row of tabs sits under the drawer search bar. Tap a tab (or swipe the grid left/right) to see only its apps.
+> - **All** shows the apps that aren't in any tab. Search always looks through every app.
+> - Create, rename, delete and reorder tabs in **Settings → App drawer → Manage Tabs**, or long-press an app in the drawer and choose **Add to tab…**
+> - An app can be in more than one tab. Newly installed apps appear in **All**.
+>
+> **Install:** download the APK from the [Releases page](https://github.com/lelandyarnell/LauncherTabs/releases). It installs as a separate app (`org.fossify.home.tabs`), so it can sit next to the official Fossify Launcher. Then pick it under Settings → Apps → Default apps → Home app.
+>
+> Everything below is the original Fossify Launcher README. Licensed under GPL-3.0, like the original.
+
+## About Fossify Launcher
 
 <img alt="Logo" src="graphics/icon.webp" width="120" />
 
