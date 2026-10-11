@@ -87,7 +87,7 @@ class ManageTabsAdapter(
             if (tab == null) {
                 binding.manageTabName.text = activity.getString(R.string.all_tab)
                 binding.manageTabCount.text = if (hiddenAppsCount > 0) {
-                    activity.getString(R.string.hidden_apps_count, hiddenAppsCount)
+                    "${getAppCountText(allAppsCount)} · ${activity.getString(R.string.hidden_apps_count, hiddenAppsCount)}"
                 } else {
                     getAppCountText(allAppsCount)
                 }

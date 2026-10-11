@@ -47,14 +47,14 @@ class ManageTabsActivity : SimpleActivity(), ManageTabsAdapter.Listener {
         ensureBackgroundThread {
             val tabs = tabsDB.getTabs()
             val visibleApps = getTabAssignableApps().map { it.getLauncherIdentifier() }.toSet()
-            val counts = tabsDB.getAllTabApps()
-                .filter { visibleApps.contains(it.getAppIdentifier()) }
-                .groupingBy { it.tabId }
-                .eachCount()
+            val visibleTabApps = tabsDB.getAllTabApps().filter { visibleApps.contains(it.getAppIdentifier()) }
+            val counts = visibleTabApps.groupingBy { it.tabId }.eachCount()
+            // "All" only holds the apps that are not in any custom tab
+            val unassignedCount = visibleApps.size - visibleTabApps.map { it.getAppIdentifier() }.toSet().size
             val hiddenCount = hiddenIconsDB.getHiddenIcons().size
 
             runOnUiThread {
-                adapter.setData(tabs, counts, visibleApps.size, hiddenCount)
+                adapter.setData(tabs, counts, unassignedCount, hiddenCount)
             }
         }
     }

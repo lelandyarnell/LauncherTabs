@@ -317,6 +317,10 @@ class AllAppsFragment(
         } else if (selectedTabId != null) {
             val tabApps = tabAppIdentifiers[selectedTabId].orEmpty()
             items.filter { tabApps.contains(it.getLauncherIdentifier()) }
+        } else if (tabAppIdentifiers.isNotEmpty()) {
+            // apps moved into a custom tab no longer show up under "All"
+            val assignedApps = tabAppIdentifiers.values.flatten().toSet()
+            items.filter { !assignedApps.contains(it.getLauncherIdentifier()) }
         } else {
             items
         }
