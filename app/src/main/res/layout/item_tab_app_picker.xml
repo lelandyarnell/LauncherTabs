@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tab_app_holder"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingStart="@dimen/activity_margin"
+    android:paddingTop="@dimen/small_margin"
+    android:paddingEnd="@dimen/activity_margin"
+    android:paddingBottom="@dimen/small_margin">
+
+    <ImageView
+        android:id="@+id/tab_app_icon"
+        android:layout_width="@dimen/tab_app_picker_icon_size"
+        android:layout_height="@dimen/tab_app_picker_icon_size"
+        android:importantForAccessibility="no" />
+
+    <org.fossify.commons.views.MyTextView
+        android:id="@+id/tab_app_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_margin"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textSize="@dimen/bigger_text_size" />
+
+    <org.fossify.commons.views.MyAppCompatCheckbox
+        android:id="@+id/tab_app_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:focusable="false" />
+
+</LinearLayout>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/tab_apps_picker_holder"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/medium_margin">
+
+    <org.fossify.commons.views.MyTextInputLayout
+        android:id="@+id/tab_apps_picker_search_hint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_margin"
+        android:layout_marginEnd="@dimen/activity_margin"
+        android:hint="@string/search">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tab_apps_picker_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLines="1"
+            android:textSize="@dimen/bigger_text_size" />
+
+    </org.fossify.commons.views.MyTextInputLayout>
+
+    <org.fossify.commons.views.MyRecyclerView
+        android:id="@+id/tab_apps_picker_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/medium_margin"
+        android:clipToPadding="false"
+        android:scrollbars="vertical"
+        app:layoutManager="org.fossify.commons.views.MyLinearLayoutManager" />
+
+    <org.fossify.commons.views.MyTextView
+        android:id="@+id/tab_apps_picker_placeholder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="@dimen/activity_margin"
+        android:text="@string/no_items_found"
+        android:visibility="gone" />
+
+</LinearLayout>

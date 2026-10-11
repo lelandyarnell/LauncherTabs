@@ -105,6 +105,8 @@ fun Activity.handleGridItemPopupMenu(
             (gridItem.type == ITEM_TYPE_ICON || gridItem.type == ITEM_TYPE_FOLDER) && !isOnAllAppsFragment
         menu.findItem(R.id.hide_icon).isVisible =
             gridItem.type == ITEM_TYPE_ICON && isOnAllAppsFragment
+        menu.findItem(R.id.add_to_tab).isVisible =
+            gridItem.type == ITEM_TYPE_ICON && isOnAllAppsFragment
         menu.findItem(R.id.resize).isVisible = gridItem.type == ITEM_TYPE_WIDGET
         menu.findItem(R.id.app_info).isVisible = gridItem.type == ITEM_TYPE_ICON
         menu.findItem(R.id.uninstall).isVisible = gridItem.type == ITEM_TYPE_ICON
@@ -163,6 +165,7 @@ fun Activity.handleGridItemPopupMenu(
                 R.id.app_info -> listener.appInfo(gridItem)
                 R.id.remove -> listener.remove(gridItem)
                 R.id.uninstall -> listener.uninstall(gridItem)
+                R.id.add_to_tab -> listener.addToTab(gridItem)
             }
             true
         }

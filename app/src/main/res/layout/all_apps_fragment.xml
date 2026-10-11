@@ -11,11 +11,23 @@
         android:layout_height="wrap_content"
         app:applyWindowInsets="false" />
 
+    <org.fossify.home.views.DrawerTabsBar
+        android:id="@+id/drawer_tabs_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/search_bar"
+        android:clipToPadding="false"
+        android:paddingStart="@dimen/medium_margin"
+        android:paddingTop="@dimen/small_margin"
+        android:paddingEnd="@dimen/medium_margin"
+        android:paddingBottom="@dimen/small_margin"
+        android:visibility="gone" />
+
     <com.qtalk.recyclerviewfastscroller.RecyclerViewFastScroller
         android:id="@+id/all_apps_fastscroller"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/search_bar"
+        android:layout_below="@+id/drawer_tabs_bar"
         app:fastScrollEnabled="true">
 
         <org.fossify.commons.views.MyRecyclerView
@@ -34,7 +46,7 @@
         android:id="@+id/no_results_placeholder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/search_bar"
+        android:layout_below="@+id/drawer_tabs_bar"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/bigger_margin"
         android:alpha="0.8"

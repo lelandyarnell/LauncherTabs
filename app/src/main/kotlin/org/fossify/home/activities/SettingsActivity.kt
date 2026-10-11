@@ -50,6 +50,7 @@ class SettingsActivity : SimpleActivity() {
         setupCloseAppDrawerOnOtherAppOpen()
         setupOpenKeyboardOnAppDrawer()
         setupDrawerColumnCount()
+        setupManageTabs()
         setupDrawerSearchBar()
         setupShowDrawerAppLabels()
         setupHomeRowCount()
@@ -269,6 +270,12 @@ class SettingsActivity : SimpleActivity() {
     private fun setupManageHiddenIcons() {
         binding.settingsManageHiddenIconsHolder.setOnClickListener {
             startActivity(Intent(this, HiddenIconsActivity::class.java))
+        }
+    }
+
+    private fun setupManageTabs() {
+        binding.settingsManageTabsHolder.setOnClickListener {
+            startActivity(Intent(this, ManageTabsActivity::class.java))
         }
     }
 

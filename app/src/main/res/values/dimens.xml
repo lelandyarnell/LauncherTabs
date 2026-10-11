@@ -12,4 +12,10 @@
     <dimen name="min_folder_view_height">200dp</dimen>
     <dimen name="max_folder_view_height">500dp</dimen>
     <dimen name="menu_icon_size">24dp</dimen>
+    <dimen name="drawer_tab_height">40dp</dimen>
+    <dimen name="drawer_tab_min_width">72dp</dimen>
+    <dimen name="tab_app_picker_icon_size">40dp</dimen>
+    <dimen name="manage_tab_card_min_height">64dp</dimen>
+    <dimen name="manage_tab_button_size">48dp</dimen>
+    <dimen name="manage_tabs_list_bottom_padding">96dp</dimen>
 </resources>

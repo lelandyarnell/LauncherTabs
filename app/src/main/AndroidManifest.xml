@@ -27,7 +27,7 @@
         android:allowBackup="true"
         android:appCategory="productivity"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_launcher_name"
+        android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -89,8 +89,14 @@
             android:label="@string/hidden_icons"
             android:parentActivityName=".activities.SettingsActivity" />
 
+
+        <activity
+            android:name=".activities.ManageTabsActivity"
+            android:exported="false"
+            android:label="@string/manage_tabs"
+            android:parentActivityName=".activities.SettingsActivity" />
         <activity-alias
-            android:name=".activities.SplashActivity.Red"
+            android:name="${baseApplicationId}.activities.SplashActivity.Red"
             android:clearTaskOnLaunch="true"
             android:enabled="false"
             android:excludeFromRecents="true"
@@ -108,7 +114,7 @@
         </activity-alias>
 
         <activity-alias
-            android:name=".activities.SplashActivity.Pink"
+            android:name="${baseApplicationId}.activities.SplashActivity.Pink"
             android:clearTaskOnLaunch="true"
             android:enabled="false"
             android:excludeFromRecents="true"
@@ -126,7 +132,7 @@
         </activity-alias>
 
         <activity-alias
-            android:name=".activities.SplashActivity.Purple"
+            android:name="${baseApplicationId}.activities.SplashActivity.Purple"
             android:clearTaskOnLaunch="true"
             android:enabled="false"
             android:excludeFromRecents="true"
@@ -144,7 +150,7 @@
         </activity-alias>
 
         <activity-alias
-            android:name=".activities.SplashActivity.Deep_purple"
+            android:name="${baseApplicationId}.activities.SplashActivity.Deep_purple"
             android:clearTaskOnLaunch="true"
             android:enabled="false"
             android:excludeFromRecents="true"
@@ -162,7 +168,7 @@
         </activity-alias>
 
         <activity-alias
-            android:name=".activities.SplashActivity.Indigo"
+            android:name="${baseApplicationId}.activities.SplashActivity.Indigo"
             android:clearTaskOnLaunch="true"
             android:enabled="false"
             android:excludeFromRecents="true"
@@ -180,7 +186,7 @@
         </activity-alias>
 
         <activity-alias
-            android:name=".activities.SplashActivity.Blue"
+            android:name="${baseApplicationId}.activities.SplashActivity.Blue"
             android:clearTaskOnLaunch="true"
             android:enabled="false"
             android:excludeFromRecents="true"
@@ -198,7 +204,7 @@
         </activity-alias>
 
         <activity-alias
-            android:name=".activities.SplashActivity.Light_blue"
+            android:name="${baseApplicationId}.activities.SplashActivity.Light_blue"
             android:clearTaskOnLaunch="true"
             android:enabled="false"
             android:excludeFromRecents="true"
@@ -216,7 +222,7 @@
         </activity-alias>
 
         <activity-alias
-            android:name=".activities.SplashActivity.Cyan"
+            android:name="${baseApplicationId}.activities.SplashActivity.Cyan"
             android:clearTaskOnLaunch="true"
             android:enabled="false"
             android:excludeFromRecents="true"
@@ -234,7 +240,7 @@
         </activity-alias>
 
         <activity-alias
-            android:name=".activities.SplashActivity.Teal"
+            android:name="${baseApplicationId}.activities.SplashActivity.Teal"
             android:clearTaskOnLaunch="true"
             android:enabled="false"
             android:excludeFromRecents="true"
@@ -252,7 +258,7 @@
         </activity-alias>
 
         <activity-alias
-            android:name=".activities.SplashActivity.Green"
+            android:name="${baseApplicationId}.activities.SplashActivity.Green"
             android:clearTaskOnLaunch="true"
             android:enabled="true"
             android:excludeFromRecents="true"
@@ -270,7 +276,7 @@
         </activity-alias>
 
         <activity-alias
-            android:name=".activities.SplashActivity.Light_green"
+            android:name="${baseApplicationId}.activities.SplashActivity.Light_green"
             android:clearTaskOnLaunch="true"
             android:enabled="false"
             android:excludeFromRecents="true"
@@ -288,7 +294,7 @@
         </activity-alias>
 
         <activity-alias
-            android:name=".activities.SplashActivity.Lime"
+            android:name="${baseApplicationId}.activities.SplashActivity.Lime"
             android:clearTaskOnLaunch="true"
             android:enabled="false"
             android:excludeFromRecents="true"
@@ -306,7 +312,7 @@
         </activity-alias>
 
         <activity-alias
-            android:name=".activities.SplashActivity.Yellow"
+            android:name="${baseApplicationId}.activities.SplashActivity.Yellow"
             android:clearTaskOnLaunch="true"
             android:enabled="false"
             android:excludeFromRecents="true"
@@ -324,7 +330,7 @@
         </activity-alias>
 
         <activity-alias
-            android:name=".activities.SplashActivity.Amber"
+            android:name="${baseApplicationId}.activities.SplashActivity.Amber"
             android:clearTaskOnLaunch="true"
             android:enabled="false"
             android:excludeFromRecents="true"
@@ -342,7 +348,7 @@
         </activity-alias>
 
         <activity-alias
-            android:name=".activities.SplashActivity.Orange"
+            android:name="${baseApplicationId}.activities.SplashActivity.Orange"
             android:clearTaskOnLaunch="true"
             android:enabled="false"
             android:excludeFromRecents="true"
@@ -360,7 +366,7 @@
         </activity-alias>
 
         <activity-alias
-            android:name=".activities.SplashActivity.Deep_orange"
+            android:name="${baseApplicationId}.activities.SplashActivity.Deep_orange"
             android:clearTaskOnLaunch="true"
             android:enabled="false"
             android:excludeFromRecents="true"
@@ -378,7 +384,7 @@
         </activity-alias>
 
         <activity-alias
-            android:name=".activities.SplashActivity.Brown"
+            android:name="${baseApplicationId}.activities.SplashActivity.Brown"
             android:clearTaskOnLaunch="true"
             android:enabled="false"
             android:excludeFromRecents="true"
@@ -396,7 +402,7 @@
         </activity-alias>
 
         <activity-alias
-            android:name=".activities.SplashActivity.Blue_grey"
+            android:name="${baseApplicationId}.activities.SplashActivity.Blue_grey"
             android:clearTaskOnLaunch="true"
             android:enabled="false"
             android:excludeFromRecents="true"
@@ -414,7 +420,7 @@
         </activity-alias>
 
         <activity-alias
-            android:name=".activities.SplashActivity.Grey_black"
+            android:name="${baseApplicationId}.activities.SplashActivity.Grey_black"
             android:clearTaskOnLaunch="true"
             android:enabled="false"
             android:excludeFromRecents="true"

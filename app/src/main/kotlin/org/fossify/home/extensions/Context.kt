@@ -19,6 +19,7 @@ import org.fossify.home.helpers.Config
 import org.fossify.home.interfaces.AppLaunchersDao
 import org.fossify.home.interfaces.HiddenIconsDao
 import org.fossify.home.interfaces.HomeScreenGridItemsDao
+import org.fossify.home.interfaces.TabsDao
 import kotlin.math.ceil
 import kotlin.math.max
 
@@ -31,6 +32,9 @@ val Context.homeScreenGridItemsDB: HomeScreenGridItemsDao
     get() = AppsDatabase.getInstance(
         applicationContext
     ).HomeScreenGridItemsDao()
+
+val Context.tabsDB: TabsDao
+    get() = AppsDatabase.getInstance(applicationContext).TabsDao()
 
 val Context.hiddenIconsDB: HiddenIconsDao
     get() = AppsDatabase.getInstance(applicationContext).HiddenIconsDao()

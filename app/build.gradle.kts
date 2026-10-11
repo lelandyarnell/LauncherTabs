@@ -32,6 +32,8 @@ android {
 
     defaultConfig {
         applicationId = project.property("APP_ID").toString()
+        // alias names of the launcher icon colors must follow the app id (without the .debug suffix)
+        manifestPlaceholders["baseApplicationId"] = project.property("APP_ID").toString()
         minSdk = project.libs.versions.app.build.minimumSDK.get().toInt()
         targetSdk = project.libs.versions.app.build.targetSDK.get().toInt()
         versionName = project.property("VERSION_NAME").toString()
@@ -69,6 +71,9 @@ android {
     buildTypes {
         debug {
             applicationIdSuffix = ".debug"
+            if (keystorePropertiesFile.exists()) {
+                signingConfig = signingConfigs.getByName("release")
+            }
         }
         release {
             isMinifyEnabled = true
@@ -114,7 +119,8 @@ android {
         )
     }
 
-    namespace = project.property("APP_ID").toString()
+    // kept at the upstream package so sources and R classes stay untouched
+    namespace = "org.fossify.home"
 
     lint {
         checkReleaseBuilds = false

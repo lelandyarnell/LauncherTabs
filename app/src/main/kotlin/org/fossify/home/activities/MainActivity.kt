@@ -66,6 +66,7 @@ import org.fossify.home.R
 import org.fossify.home.databinding.ActivityMainBinding
 import org.fossify.home.databinding.AllAppsFragmentBinding
 import org.fossify.home.databinding.WidgetsFragmentBinding
+import org.fossify.home.dialogs.AddToTabDialog
 import org.fossify.home.dialogs.RenameItemDialog
 import org.fossify.home.extensions.config
 import org.fossify.home.extensions.getDrawableForPackageName
@@ -79,6 +80,7 @@ import org.fossify.home.extensions.launchAppInfo
 import org.fossify.home.extensions.launchersDB
 import org.fossify.home.extensions.roleManager
 import org.fossify.home.extensions.supportsDarkText
+import org.fossify.home.extensions.tabsDB
 import org.fossify.home.extensions.uninstallApp
 import org.fossify.home.fragments.MyFragment
 import org.fossify.home.helpers.ITEM_TYPE_FOLDER
@@ -286,6 +288,7 @@ class MainActivity : SimpleActivity(), FlingListener {
 
             binding.allAppsFragment.root.gotLaunchers(IconCache.launchers)
             refreshLaunchers()
+            binding.allAppsFragment.root.refreshTabs()
         }
 
         binding.homeScreenGrid.root.resizeGrid(
@@ -602,8 +605,11 @@ class MainActivity : SimpleActivity(), FlingListener {
             if (!launchers.map { it.packageName }.contains(packageName)) {
                 launchersDB.deleteApp(packageName)
                 homeScreenGridItemsDB.deleteByPackageName(packageName)
+                tabsDB.deletePackageFromTabs(packageName)
             }
         }
+
+        removeUninstalledAppsFromTabs()
 
         IconCache.launchers = launchers
 
@@ -618,7 +624,23 @@ class MainActivity : SimpleActivity(), FlingListener {
         }
     }
 
-    fun isAllAppsFragmentExpanded() = binding.allAppsFragment.root.y != mScreenHeight.toFloat()
+    // also catches apps uninstalled while hidden, which are not part of the launcher list
+    private fun removeUninstalledAppsFromTabs() {
+        tabsDB.getTabAppPackages().forEach { packageName ->
+            val isInstalled = try {
+                packageManager.getPackageInfo(packageName, 0)
+                true
+            } catch (_: PackageManager.NameNotFoundException) {
+                false
+            }
+
+            if (!isInstalled) {
+                tabsDB.deletePackageFromTabs(packageName)
+            }
+        }
+    }
+
+    fun isAllAppsFragmentExpanded() =binding.allAppsFragment.root.y != mScreenHeight.toFloat()
 
     private fun isWidgetsFragmentExpanded() =
         binding.widgetsFragment.root.y != mScreenHeight.toFloat()
@@ -678,6 +700,7 @@ class MainActivity : SimpleActivity(), FlingListener {
         }
         Handler(Looper.getMainLooper()).postDelayed({
             if (fragment is AllAppsFragmentBinding) {
+                fragment.root.selectAllTab()
                 fragment.allAppsGrid.scrollToPosition(0)
                 fragment.root.touchDownY = -1
             } else if (fragment is WidgetsFragmentBinding) {
@@ -737,6 +760,7 @@ class MainActivity : SimpleActivity(), FlingListener {
         if (isAllAppsFragmentExpanded()) {
             val close = {
                 binding.allAppsFragment.root.y = mScreenHeight.toFloat()
+                binding.allAppsFragment.root.selectAllTab()
                 binding.allAppsFragment.allAppsGrid.scrollToPosition(0)
                 binding.allAppsFragment.root.touchDownY = -1
                 binding.homeScreenGrid.root.fragmentCollapsed()
@@ -962,6 +986,12 @@ class MainActivity : SimpleActivity(), FlingListener {
 
         override fun uninstall(gridItem: HomeScreenGridItem) {
             uninstallApp(gridItem.packageName)
+        }
+
+        override fun addToTab(gridItem: HomeScreenGridItem) {
+            AddToTabDialog(this@MainActivity, gridItem.packageName, gridItem.activityName) {
+                binding.allAppsFragment.root.refreshTabs()
+            }
         }
 
         override fun onDismiss() {
